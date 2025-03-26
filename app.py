@@ -2,6 +2,14 @@ from flask import Flask, render_template, request, jsonify
 import random
 import string
 import re
+import platform
+
+# Platform check for Windows-specific imports
+if platform.system() == "Windows":
+    import win32api
+    import win32con
+else:
+    print("Running on Linux, pywin32 is not used.")
 
 app = Flask(__name__)
 
